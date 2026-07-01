@@ -729,7 +729,7 @@ function initEventListeners() {
   // Unlock button
   elements.unlockBtn.addEventListener('click', () => {
     attemptUnlock(elements.unlockEmail.value);
-  });
+  }),
 
   elements.unlockEmail.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') attemptUnlock(elements.unlockEmail.value);
@@ -745,10 +745,6 @@ function initEventListeners() {
         : 'Already own it? Unlock here';
     });
   }
-    if (e.key === 'Enter') {
-      attemptUnlock(elements.unlockEmail.value);
-    }
-  });
 
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
