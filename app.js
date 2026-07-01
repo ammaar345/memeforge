@@ -753,8 +753,12 @@ function initEventListeners() {
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
     // Close editor on Escape
-    if (e.key === 'Escape' && !elements.editorOverlay.hidden) {
-      closeEditor();
+    if (e.key === 'Escape') {
+      if (!elements.editorOverlay.hidden) {
+        closeEditor();
+      } else if (!elements.proModal.hidden) {
+        elements.proModal.hidden = true;
+      }
     }
   });
 

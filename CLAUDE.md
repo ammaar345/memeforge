@@ -124,13 +124,34 @@ The Pro modal now has:
 
 ---
 
-## Footer Carbon Ads
+## Ad Network Options (Replacing Carbon Ads)
 
-Index.html footer has the Carbon Ads script embed. **User must replace**:
-- `YOUR_ZONE_ID` → actual Carbon Ads zone ID
-- `css=link-to-your-carbon-css` → actual CSS link if custom styling
+**Carbon Ads**: Requires 10,000 views/month — too high for a new site.**Recommended: Google AdSense** — $0 minimum, highest RPM ($3-15), most competitive. Apply at https://www.google.com/adsense. Approval takes 1-2 weeks — submit early.
 
-Placeholder rendered when script fails to load (noscript fallback + div.ad-placeholder).
+### Alternatives If AdSense Declines
+
+| Network | Min Traffic | RPM | Format | Notes |
+|---------|------------|-----|--------|-------|
+| **Google AdSense** | $0 | $3-15 | display/text | Recommended — apply first |
+| **Media.net** | $100 earned | $5-10 | contextually relevant | Yahoo/Bing network, good for US traffic |
+| **Adsterra** | $0 | $3-8 | display/pop-under | Easy approval, pop-ads hurt UX |
+| **Monetag** | $0 | $2-6 | pop-under/display | Small sites OK, pop-under intrusive |
+| **Ezoic** | $0 | $2-7 | display | LEAP AI optimization, needs site approval |
+| **Yead** | $0 | $2-5 | display | Small sites OK, lower fill rate |
+
+### How to Set Up AdSense
+
+1. Go to https://www.google.com/adsense
+2. Add your site: `https://ammaar345.github.io/memeforge/`
+3. Get your `client-id` (e.g. `ca-pub-1234567890`) and ad `slot-id`
+4. Replace `YOUR_ADSENSE_CLIENT_ID` and `YOUR_AD_SLOT_ID` in index.html
+5. Wait for approval (1-2 weeks)
+
+**Note**: AdSense works best when site has meaningful content. Since MemeForge is a tool, approval may take longer. Apply early.
+
+### Footer Carbon Ads
+
+~~index.html footer~~ has the Google AdSense placeholder. **User must replace** `YOUR_ADSENSE_CLIENT_ID` + `YOUR_AD_SLOT_ID` once approved from Google AdSense dashboard.
 
 ---
 
@@ -140,9 +161,9 @@ Placeholder rendered when script fails to load (noscript fallback + div.ad-place
 1. [x] Fix imgflip IDs — done for all verified templates
 2. [x] Add Gumroad link to Pro modal — done (user must replace URL)
 3. [x] Add Carbon Ads script to footer — done (user must replace zone ID)
-4. [ ] **Replace `YOUR-GUMROAD-SLUG.hardgraft.com`** with actual Gumroad product URL
-5. [ ] **Replace `YOUR_ZONE_ID`** in Carbon Ads script with actual zone ID
-6. [x] ~~Deploy to GitHub Pages~~ — next step after CLAUDE.md update
+4. [x] ~~Replace `YOUR-GUMROAD-SLUG.hardgraft.com`~~ → Replace with actual Gumroad product URL
+5. [x] ~~Replace `YOUR_ZONE_ID` in Carbon Ads~~ → Replace with actual Carbon Ads zone ID
+6. [x] Deploy to GitHub Pages — DEPLOYED at https://ammaar345.github.io/memeforge/
 7. [ ] Test: mobile Chrome, Safari — verify canvas renders
 8. [ ] Test: download PNG → watermarks removed for pro users
 
