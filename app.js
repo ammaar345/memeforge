@@ -16,7 +16,7 @@ const state = {
   fontColor: 'white',
   fontSize: 40,
   fontStyle: 'Impact',
-  isLoading: false
+  isImageLoaded: false
 };
 
 // ============ DOM ELEMENTS ============
@@ -260,13 +260,15 @@ function loadProStatus() {
 function updateProUI() {
   // Update nav button
   if (state.pro) {
-    elements.proBtn.textContent = 'PRO';
+    elements.proBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>PRO`;
     elements.proBtn.style.background = 'var(--pro-badge)';
     elements.proBtn.style.color = '#000';
   }
 
   // Hide footer ad for pro
-  if (state.pro) {
+  if (state.pro && elements.footerAd) {
     elements.footerAd.classList.add('hidden');
   }
 
@@ -429,6 +431,11 @@ function openEditor(templateId) {
     btn.setAttribute('aria-pressed', btn.dataset.color === 'white');
   });
 
+  // Disable export until image loads
+  elements.downloadBtn.disabled = true;
+  elements.copyBtn.disabled = true;
+  state.isImageLoaded = false;
+
   // Show overlay
   elements.editorOverlay.hidden = false;
   document.body.style.overflow = 'hidden';
@@ -583,6 +590,11 @@ function renderCanvas() {
       ctx.textBaseline = 'bottom';
       ctx.fillText('MemeForge', drawW - 4, drawH - 4);
     }
+
+    // Enable export buttons now image is ready
+    state.isImageLoaded = true;
+    elements.downloadBtn.disabled = false;
+    elements.copyBtn.disabled = false;
   };
 
   img.onerror = () => {
@@ -611,6 +623,11 @@ function renderCanvas() {
       ctx.textAlign = 'right';
       ctx.fillText('MemeForge', 496, 490);
     }
+
+    // Enable export even on image error (fallback is usable)
+    state.isImageLoaded = true;
+    elements.downloadBtn.disabled = false;
+    elements.copyBtn.disabled = false;
   };
 
   img.src = imgUrl;
@@ -714,7 +731,11 @@ async function downloadPNG() {
     }, 1500);
 
   } catch (err) {
-    showToast('Download failed. Try again.', 'error');
+    if (err.name === 'SecurityError') {
+      showToast('CORS blocked export. Save via right-click image instead.', 'error');
+    } else {
+      showToast('Download failed. Try again.', 'error');
+    }
     btn.querySelector('.btn-text').textContent = originalText;
     btn.disabled = false;
   }
@@ -731,7 +752,11 @@ async function copyToClipboard() {
 
     showToast('Copied to clipboard!', 'success');
   } catch (err) {
-    showToast('Copy failed. Download instead.', 'error');
+    if (err.name === 'SecurityError') {
+      showToast('CORS blocked export. Save via right-click image instead.', 'error');
+    } else {
+      showToast('Copy failed. Download instead.', 'error');
+    }
   }
 }
 
