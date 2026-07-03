@@ -29,6 +29,7 @@ const elements = {
   editorOverlay: document.getElementById('editor-overlay'),
   editorTitle: document.getElementById('editor-title'),
   editorBack: document.getElementById('editor-back'),
+  editorXClose: document.getElementById('editor-x-close'),
   memeCanvas: document.getElementById('meme-canvas'),
   topTextInput: document.getElementById('top-text'),
   bottomTextInput: document.getElementById('bottom-text'),
@@ -62,12 +63,12 @@ const templates = [
   { id: 'one-does-not', name: 'One Does Not Simply', category: 'classic', topArea: 'yes', botArea: 'no', premium: false },
   { id: 'futurama-fry', name: 'Not Sure If...', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'roll-safe', name: 'Roll Safe', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
-  { id: 'sad Pablo', name: 'Sad Pablo', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'sad-pablo', name: 'Sad Pablo Escobar', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'success-kid', name: 'Success Kid', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'that-would-be-great', name: 'That Would Be Great', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   // Reactions
   { id: 'surprised-pikachu', name: 'Surprised Pikachu', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
-  { id: 'blinking-chaos', name: 'Woman Yelling at Cat', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'woman-yelling-at-cat', name: 'Woman Yelling at Cat', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'drakeposting', name: 'Drakeposting', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'surprised-tony', name: 'Surprised Tony Stark', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'mocking-spongebob', name: 'Mocking SpongeBob', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
@@ -79,7 +80,7 @@ const templates = [
   { id: 'loki-sit', name: 'Loki Sit', category: 'movies', topArea: 'yes', botArea: 'yes', premium: true },
   { id: 'waiting-leo', name: 'Waiting Leonardo', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'old-man-yells', name: 'Old Man Yells', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
-  { id: 'gr Gregorio', name: ' Gregorio', category: 'movies', topArea: 'yes', botArea: 'yes', premium: true },
+  { id: 'gr-gregorio', name: 'Gregorio', category: 'movies', topArea: 'yes', botArea: 'yes', premium: true },
   // Sports
   { id: 'crying-jordan', name: 'Crying Jordan', category: 'sports', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'kobe-sigh', name: 'Kobe Sigh', category: 'sports', topArea: 'yes', botArea: 'yes', premium: false },
@@ -117,12 +118,11 @@ const templateImages = {
   'one-does-not': 'https://i.imgflip.com/1bij.jpg',
   'futurama-fry': 'https://i.imgflip.com/1bgw.jpg',
   'roll-safe': 'https://i.imgflip.com/1h7in3.jpg',
-  'sad Pablo': 'https://i.imgflip.com/1c1uej.jpg',
+  'sad-pablo': 'https://i.imgflip.com/1c1uej.jpg',
   'success-kid': 'https://i.imgflip.com/mmm', // not on imgflip public API — use gradient
   'that-would-be-great': 'https://i.imgflip.com/mmm', // not on imgflip public API — use gradient
   // Reactions — confirmed via imgflip API
   'surprised-pikachu': 'https://i.imgflip.com/2kbn1e.jpg',
-  'blinking-chaos': 'https://i.imgflip.com/mmm', // not on imgflip — no ID
   'drakeposting': 'https://i.imgflip.com/mmm', // not on imgflip — no ID
   'surprised-tony': 'https://i.imgflip.com/mmm', // not on imgflip — no ID
   'mocking-spongebob': 'https://i.imgflip.com/1otk96.jpg',
@@ -135,7 +135,7 @@ const templateImages = {
   'loki-sit': 'https://i.imgflip.com/mmm', // Disney — use gradient
   'waiting-leo': 'https://i.imgflip.com/39t1o.jpg',
   'old-man-yells': 'https://i.imgflip.com/mmm', // not on imgflip — use gradient
-  'gr Gregorio': 'https://i.imgflip.com/mmm', // not on imgflip — use gradient
+  'gr-gregorio': 'https://i.imgflip.com/mmm', // not on imgflip — use gradient
   // Sports (not on imgflip public API — use gradient fallbacks)
   'crying-jordan': 'https://i.imgflip.com/mmm',
   'kobe-sigh': 'https://i.imgflip.com/mmm',
@@ -173,7 +173,7 @@ const templateGradients = {
   'one-does-not': 'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)',
   'futurama-fry': 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
   'roll-safe': 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)',
-  'sad Pablo': 'linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%)',
+  'sad-pablo': 'linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%)',
   'success-kid': 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
   'doge': 'linear-gradient(135deg, #f5af19 0%, #f12711 100%)',
   'this-is-fine': 'linear-gradient(135deg, #f093fb 0%, #4facfe 100%)',
@@ -183,7 +183,6 @@ const templateGradients = {
   'waiting-leo': 'linear-gradient(135deg, #c471ed 0%, #f64f59 100%)',
   'woman-yelling-at-cat': 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
   // Templates not on imgflip — gradient is primary display
-  'blinking-chaos': 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
   'drakeposting': 'linear-gradient(135deg, #000428 0%, #004e92 100%)',
   'surprised-tony': 'linear-gradient(135deg, #536976 0%, #292e49 100%)',
   'crying-cat': 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',
@@ -191,7 +190,7 @@ const templateGradients = {
   'arthur-fist': 'linear-gradient(135deg, #f5af19 0%, #f12711 100%)',
   'loki-sit': 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
   'old-man-yells': 'linear-gradient(135deg, #ff8c00 0%, #ffd700 100%)',
-  'gr Gregorio': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+  'gr-gregorio': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
   'crying-jordan': 'linear-gradient(135deg, #0f0c29 0%, #302b63 100%)',
   'kobe-sigh': 'linear-gradient(135deg, #f5af19 0%, #f12711 100%)',
   'lebron-yell': 'linear-gradient(135deg, #6d2e84 0%, #4facfe 100%)',
@@ -336,7 +335,7 @@ function filterTemplates() {
 function renderGallery() {
   const templates = state.filteredTemplates;
 
-  if (templates.length === 0) {
+  if (templates.length === 0 && state.currentCategory !== 'upload') {
     elements.galleryGrid.hidden = true;
     elements.galleryEmpty.hidden = false;
     elements.emptyQuery.textContent = state.searchQuery;
@@ -346,7 +345,22 @@ function renderGallery() {
   elements.galleryGrid.hidden = false;
   elements.galleryEmpty.hidden = true;
 
-  elements.galleryGrid.innerHTML = templates.map((template, index) => {
+  // Prepend Upload card when upload tab is active
+  let html = '';
+  if (state.currentCategory === 'upload') {
+    html += `
+      <article class="template-card upload-card" tabindex="0" role="button" aria-label="Upload your own image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <span>Upload Image</span>
+      </article>
+    `;
+  }
+
+  html += templates.map((template, index) => {
     const imgUrl = templateImages[template.id];
     const gradient = templateGradients[template.id];
     const style = gradient
@@ -427,6 +441,80 @@ function closeEditor() {
   elements.editorOverlay.hidden = true;
   document.body.style.overflow = '';
   state.currentTemplate = null;
+}
+
+// ============ IMAGE UPLOAD ============
+function triggerFileUpload() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    handleImageUpload(file);
+  };
+  input.click();
+}
+
+function handleImageUpload(file) {
+  // Validate file
+  const maxSize = 5 * 1024 * 1024; // 5MB
+  if (file.size > maxSize) {
+    showToast('Image too large. Max 5MB.', 'error');
+    return;
+  }
+  if (!file.type.startsWith('image/')) {
+    showToast('Please select a valid image file.', 'error');
+    return;
+  }
+
+  showToast('Loading image...', 'info');
+
+  const reader = new FileReader();
+  reader.onload = (loadEvent) => {
+    const dataUrl = loadEvent.target.result;
+    const uploadId = '__upload__' + Date.now();
+    const name = file.name.replace(/\.[^.]+$/, '') || 'Custom Image';
+
+    // Add to templates list
+    templates.unshift({
+      id: uploadId,
+      name: name,
+      category: 'upload',
+      topArea: 'yes',
+      botArea: 'yes',
+      premium: false
+    });
+
+    // Store data URL as the image source
+    templateImages[uploadId] = dataUrl;
+
+    // Add a generic gradient fallback
+    templateGradients[uploadId] = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+
+    // Rerender gallery first
+    filterTemplates();
+
+    // Switch to upload tab
+    elements.tabButtons.forEach(b => b.classList.remove('active'));
+    const uploadTab = document.querySelector('[data-category="upload"]');
+    if (uploadTab) {
+      uploadTab.classList.add('active');
+    }
+    state.currentCategory = 'upload';
+    filterTemplates();
+
+    // Open editor after brief delay for animation
+    setTimeout(() => openEditor(uploadId), 300);
+
+    showToast('Image loaded!', 'success');
+  };
+
+  reader.onerror = () => {
+    showToast('Failed to load image. Try another file.', 'error');
+  };
+
+  reader.readAsDataURL(file);
 }
 
 // ============ CANVAS RENDERING ============
@@ -662,8 +750,18 @@ function initEventListeners() {
     });
   });
 
-  // Editor back
+  // Editor back / X close
   elements.editorBack.addEventListener('click', closeEditor);
+  if (elements.editorXClose) {
+    elements.editorXClose.addEventListener('click', closeEditor);
+  }
+
+  // Editor overlay click outside to close
+  elements.editorOverlay.addEventListener('click', (e) => {
+    if (e.target === elements.editorOverlay) {
+      closeEditor();
+    }
+  });
 
   // Text inputs
   elements.topTextInput.addEventListener('input', (e) => {
@@ -729,7 +827,7 @@ function initEventListeners() {
   // Unlock button
   elements.unlockBtn.addEventListener('click', () => {
     attemptUnlock(elements.unlockEmail.value);
-  }),
+  });
 
   elements.unlockEmail.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') attemptUnlock(elements.unlockEmail.value);
@@ -798,22 +896,17 @@ function initEventListeners() {
     }
   });
 
-  // Upload card click
+  // Upload card click and keyboard
   elements.galleryGrid.addEventListener('click', (e) => {
     const card = e.target.closest('.upload-card');
-    if (card) {
-      // Create hidden file input
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.onchange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          // In production, this would process and add the custom template
-          showToast('Custom template upload coming soon!', 'info');
-        }
-      };
-      input.click();
+    if (card) triggerFileUpload();
+  });
+
+  elements.galleryGrid.addEventListener('keydown', (e) => {
+    const card = e.target.closest('.upload-card');
+    if (card && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      triggerFileUpload();
     }
   });
 }
@@ -824,6 +917,12 @@ function init() {
   state.filteredTemplates = templates;
 
   loadProStatus();
+
+  // Show paywall on first page load for non-pro users
+  if (!state.pro) {
+    elements.proModal.hidden = false;
+  }
+
   initEventListeners();
   renderGallery();
 }

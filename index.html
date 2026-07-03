@@ -4,13 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MemeForge — Free Meme Generator, No Watermark</title>
-  <meta name="description" content="Create memes instantly. No signup, no watermark, no watermarks.">
+  <meta name="description" content="Create memes instantly with real meme templates. No signup, no watermark, totally free. Download and share in seconds.">
   <meta property="og:title" content="MemeForge — Free Meme Generator">
-  <meta property="og:description" content="Create and download memes in seconds. No signup, no watermark.">
+  <meta property="og:description" content="Create and download memes with real templates. No signup, no watermark, totally free.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ammaar345.github.io/memeforge/">
+  <meta property="og:site_name" content="MemeForge">
+  <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDYzMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBBMEEwRiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFBMUEyRSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYzMCIgZmlsbD0idXJsKCNnKSIvPjxyZWN0IHg9IjU0MCIgeT0iMTYwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjE2IiBmaWxsPSIjMDBENEZGIi8+PHRleHQgeD0iNjAwIiB5PSIyNTUiIGZvbnQtZmFtaWx5PSJJbXBhY3Qsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MCIgZmlsbD0iIzBBMEEwRiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPk08L3RleHQ+PHRleHQgeD0iNjAwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJJbXBhY3Qsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI2NCIgZmlsbD0iI0ZBRkFGQSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPk1FTUVGT1JHRTwvdGV4dD48dGV4dCB4PSI2MDAiIHk9IjQwMCIgZm9udC1mYW1pbHk9IkhlbHZldGljYSxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmaWxsPSIjQTBBMEIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GcmVlIE1lbWUgR2VuZXJhdG9yLCBObyBXYXRlcm1hcms8L3RleHQ+PGxpbmUgeDE9IjQwMCIgeTE9IjQ0MCIgeDI9IjgwMCIgeTI9IjQ0MCIgc3Ryb2tlPSIjMDBENEZGIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MemeForge — Free Meme Generator">
+  <meta name="twitter:description" content="Create memes with real templates. No signup, no watermark, free.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Bangers&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%230A0A0F' width='32' height='32' rx='6'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2300D4FF'>M</text></svg>">
 </head>
@@ -86,14 +94,23 @@
     <div class="editor-container">
       <!-- Editor Header -->
       <header class="editor-header">
-        <button class="editor-back" id="editor-back" aria-label="Back to gallery">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-          Back
-        </button>
-        <h2 class="editor-title" id="editor-title">Template Name</h2>
-        <button class="download-btn" id="download-btn" aria-label="Download meme as PNG">
+        <div class="editor-header-left">
+          <button class="editor-back" id="editor-back" aria-label="Back to gallery">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          <h2 class="editor-title" id="editor-title">Template Name</h2>
+        </div>
+        <div class="editor-header-right">
+          <button class="editor-x-close" id="editor-x-close" aria-label="Close editor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <button class="download-btn" id="download-btn" aria-label="Download meme as PNG">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
