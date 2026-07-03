@@ -388,6 +388,9 @@ function renderGallery() {
     `;
   }).join('');
 
+  // Write gallery markup to DOM
+  elements.galleryGrid.innerHTML = html;
+
   // Add click handlers
   elements.galleryGrid.querySelectorAll('.template-card:not(.locked)').forEach(card => {
     card.addEventListener('click', () => openEditor(card.dataset.id));
