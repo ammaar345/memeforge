@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Root shorthand: any 404 → serve index.html (SPA-like)
+/* /index.html 200
+
+# Force HTTPS + apex → www or www → apex (uncomment & customize)
+# https://memeforge.pages.dev/* https://www.yourdomain.com/:splat 301
+# https://memeforge.pages.dev/* https://yourdomain.com/:splat 301
