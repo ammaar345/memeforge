@@ -381,7 +381,7 @@ function renderGallery() {
         style="animation-delay: ${index * 50}ms"
       >
         ${isLocked ? '<div class="pro-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>' : ''}
-        <img class="template-card-img" src="${imgUrl}" alt="${escapeHtml(template.name)}" loading="lazy" style="${style}" onerror="this.removeAttribute('src');">
+        <img class="template-card-img" src="${imgUrl}" alt="${escapeHtml(template.name)}" loading="lazy" style="${style}" onerror="this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';">
         <div class="template-card-info">
           <div class="template-card-name">${escapeHtml(template.name)}</div>
           <div class="template-card-category">${template.category}</div>
