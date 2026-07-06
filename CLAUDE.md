@@ -7,7 +7,7 @@
 
 ## What Works
 
-- Gallery with 40 templates, real-time search, 8 category tabs
+- Gallery with 53 templates, real-time search, 8 category tabs
 - Editor overlay — async image loading, canvas text rendering with auto-scaling
 - Text stroke/outline: white text = black stroke, black text = white stroke
 - Download PNG + Copy to clipboard

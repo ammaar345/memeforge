@@ -66,6 +66,8 @@ const templates = [
   { id: 'sad-pablo', name: 'Sad Pablo Escobar', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'success-kid', name: 'Success Kid', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'that-would-be-great', name: 'That Would Be Great', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'uno-draw-25', name: 'UNO Draw 25 Cards', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'hide-pain-harold', name: 'Hide the Pain Harold', category: 'classic', topArea: 'yes', botArea: 'yes', premium: false },
   // Reactions
   { id: 'surprised-pikachu', name: 'Surprised Pikachu', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'woman-yelling-at-cat', name: 'Woman Yelling at Cat', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
@@ -75,12 +77,20 @@ const templates = [
   { id: 'crying-cat', name: 'Crying Cat', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'handshake-sneak', name: 'Handshake Sneak', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'big-shoes', name: 'Big Shoes', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'gru-plan', name: "Gru's Plan", category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'trade-offer', name: 'Trade Offer', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'tuxedo-pooh', name: 'Tuxedo Winnie the Pooh', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'all-my-homies', name: 'All My Homies Hate', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'monkey-puppet', name: 'Monkey Puppet', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'waiting-skeleton', name: 'Waiting Skeleton', category: 'reactions', topArea: 'yes', botArea: 'yes', premium: false },
   // Movies
   { id: 'arthur-fist', name: 'Arthur Fist', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'loki-sit', name: 'Loki Sit', category: 'movies', topArea: 'yes', botArea: 'yes', premium: true },
   { id: 'waiting-leo', name: 'Waiting Leonardo', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'old-man-yells', name: 'Old Man Yells', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'gr-gregorio', name: 'Gregorio', category: 'movies', topArea: 'yes', botArea: 'yes', premium: true },
+  { id: 'spiderman-pointing', name: 'Spider-Man Pointing', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
+  { id: 'absolute-cinema', name: 'Absolute Cinema', category: 'movies', topArea: 'yes', botArea: 'yes', premium: false },
   // Sports
   { id: 'crying-jordan', name: 'Crying Jordan', category: 'sports', topArea: 'yes', botArea: 'yes', premium: false },
   { id: 'kobe-sigh', name: 'Kobe Sigh', category: 'sports', topArea: 'yes', botArea: 'yes', premium: false },
@@ -121,6 +131,8 @@ const templateImages = {
   'sad-pablo': 'https://i.imgflip.com/1c1uej.jpg',
   'success-kid': 'https://i.imgflip.com/mmm', // not on imgflip public API — use gradient
   'that-would-be-great': 'https://i.imgflip.com/mmm', // not on imgflip public API — use gradient
+  'uno-draw-25': 'https://i.imgflip.com/3lmzyx.jpg',
+  'hide-pain-harold': 'https://i.imgflip.com/gk5el.jpg',
   // Reactions — confirmed via imgflip API
   'surprised-pikachu': 'https://i.imgflip.com/2kbn1e.jpg',
   'drakeposting': 'https://i.imgflip.com/mmm', // not on imgflip — no ID
@@ -130,12 +142,20 @@ const templateImages = {
   'handshake-sneak': 'https://i.imgflip.com/28j0te.jpg',
   'woman-yelling-at-cat': 'https://i.imgflip.com/345v97.jpg',
   'big-shoes': 'https://i.imgflip.com/mmm', // not on imgflip — no ID
+  'gru-plan': 'https://i.imgflip.com/26jxvz.jpg',
+  'trade-offer': 'https://i.imgflip.com/54hjww.jpg',
+  'tuxedo-pooh': 'https://i.imgflip.com/2ybua0.png',
+  'all-my-homies': 'https://i.imgflip.com/3kwur5.jpg',
+  'monkey-puppet': 'https://i.imgflip.com/2gnnjh.jpg',
+  'waiting-skeleton': 'https://i.imgflip.com/2fm6x.jpg',
   // Movies (most Disney/Marvel — use gradient fallbacks)
   'arthur-fist': 'https://i.imgflip.com/mmm', // not on imgflip — use gradient
   'loki-sit': 'https://i.imgflip.com/mmm', // Disney — use gradient
   'waiting-leo': 'https://i.imgflip.com/39t1o.jpg',
   'old-man-yells': 'https://i.imgflip.com/mmm', // not on imgflip — use gradient
   'gr-gregorio': 'https://i.imgflip.com/mmm', // not on imgflip — use gradient
+  'spiderman-pointing': 'https://i.imgflip.com/1tkjq9.jpg',
+  'absolute-cinema': 'https://i.imgflip.com/8d317n.png',
   // Sports (not on imgflip public API — use gradient fallbacks)
   'crying-jordan': 'https://i.imgflip.com/mmm',
   'kobe-sigh': 'https://i.imgflip.com/mmm',
@@ -207,6 +227,18 @@ const templateGradients = {
   'mischief': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   'small-think': 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
   'brain': 'linear-gradient(135deg, #fff720 0%, #00d2ff 100%)',
+  // New templates from imgflip API 2026
+  'that-would-be-great': 'linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)',
+  'uno-draw-25': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  'hide-pain-harold': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  'gru-plan': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+  'trade-offer': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+  'tuxedo-pooh': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+  'all-my-homies': 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
+  'monkey-puppet': 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+  'waiting-skeleton': 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)',
+  'spiderman-pointing': 'linear-gradient(135deg, #c471ed 0%, #f64f59 100%)',
+  'absolute-cinema': 'linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%)',
 };
 
 // ============ UTILITIES ============
