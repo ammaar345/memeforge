@@ -1,7 +1,7 @@
 # MemeForge — Meme Generator with imgflip Templates
 
-**Status**: READY TO DEPLOY — all template IDs fixed, Gumroad link in Pro modal, Carbon Ads script placeholder added
-**Last updated**: 2026-07-01
+**Status**: Adding 20 more modern templates (53 → 73 total), then Cloudflare deploy + Gumroad setup
+**Last updated**: 2026-07-07
 
 ---
 
@@ -25,7 +25,7 @@
 ZeroBudgetMVPs/MemeForge/
 ├── index.html          — gallery, editor overlay, pro modal (Gumroad link), toast container, Carbon Ads footer
 ├── styles.css          — dark neon design system, CSS custom properties, responsive, animations
-├── app.js              — 40 templates, real-time search, canvas render, Pro unlock with toggle
+├── app.js              — 53 templates (adding 20 more), real-time search, canvas render, Pro unlock with toggle
 ├── SPEC.md             — original product spec
 ├── SPEC-ENHANCED.md    — UI/UX Pro Max enhanced design
 ├── business_case.md    — $0 monetization, Gumroad + Carbon Ads
@@ -48,9 +48,9 @@ ZeroBudgetMVPs/MemeForge/
 
 ---
 
-## Confirmed imgflip Template IDs
+## Current Template Inventory (53 total)
 
-### Has Real imgflip Images (22 templates)
+### Real imgflip Images (32 templates)
 ```
 drake              https://i.imgflip.com/30b1gx.jpg
 distracted-bf      https://i.imgflip.com/1ur9b0.jpg
@@ -61,30 +61,79 @@ is-this-a-pigeon   https://i.imgflip.com/1o00in.jpg
 one-does-not       https://i.imgflip.com/1bij.jpg
 futurama-fry       https://i.imgflip.com/1bgw.jpg
 roll-safe          https://i.imgflip.com/1h7in3.jpg
-sad-pablo-escobar  https://i.imgflip.com/1c1uej.jpg
+sad-pablo          https://i.imgflip.com/1c1uej.jpg
 surprised-pikachu  https://i.imgflip.com/2kbn1e.jpg
 mocking-spongebob  https://i.imgflip.com/1otk96.jpg
 handshake-sneak    https://i.imgflip.com/28j0te.jpg
 woman-yelling-at-cat https://i.imgflip.com/345v97.jpg
 waiting-leo        https://i.imgflip.com/39t1o.jpg
-doge               https://i.imgflip.com/43a45p.png  (Buff Doge vs Cheems)
+doge               https://i.imgflip.com/43a45p.png
 this-is-fine       https://i.imgflip.com/wxica.jpg
+uno-draw-25        https://i.imgflip.com/3lmzyx.jpg
+hide-pain-harold   https://i.imgflip.com/gk5el.jpg
+gru-plan           https://i.imgflip.com/26jxvz.jpg
+trade-offer        https://i.imgflip.com/54hjww.jpg
+tuxedo-pooh        https://i.imgflip.com/2ybua0.png
+all-my-homies      https://i.imgflip.com/3kwur5.jpg
+monkey-puppet      https://i.imgflip.com/2gnnjh.jpg
+waiting-skeleton   https://i.imgflip.com/2fm6x.jpg
+spiderman-pointing https://i.imgflip.com/1tkjq9.jpg
+absolute-cinema    https://i.imgflip.com/8d317n.png
 ```
 
-### Gradient-Only (23 templates) — no real imgflip ID found
+### Gradient-Only (21 templates) — no real imgflip ID
 ```
-success-kid        that-would-be-great  blinking-chaos    drakeposting
-surprised-tony     crying-cat           big-shoes         arthur-fist
-loki-sit           old-man-yells        gr Gregorio       crying-jordan
-kobe-sigh          lebron-yell          tiger-thumbs      stonks
-owl                cat                 puppy-blue        gamer
-button-game        skill-issue         gg                anka
-mischief           small-think         brain
+success-kid        that-would-be-great  drakeposting     surprised-tony
+crying-cat         big-shoes            arthur-fist       loki-sit
+old-man-yells      gr-gregorio          crying-jordan     kobe-sigh
+lebron-yell        tiger-thumbs         stonks            owl
+cat                puppy-blue           gamer             button-game
+skill-issue        gg                   anka              mischief
+small-think        brain
 ```
 
-### Why Some Don't Have imgflip Images
-- **Disney/Marvel** (loki-sit, old-man-yells, gr Gregorio): copyrighted, not on imgflip
-- **Not in public API**: success-kid, that-would-be-great, surprised-tony and many others either weren't in the 100-meme public API or don't exist on imgflip
+## Upcoming: 20 Modern Templates to Add
+
+Adding from imgflip API top 100. All real images.
+
+### Classic (4)
+| ID | Name | URL |
+|----|------|-----|
+| anakin-padme | Anakin Padme 4 Panel | `5c7lwq.png` |
+| always-has-been | Always Has Been | `46e43q.png` |
+| mother-ignoring | Mother Ignoring Kid | `46hhvr.jpg` |
+| soldier-sleeping | Soldier/Sleeping Child | `2tzo2k.jpg` |
+
+### Reactions (12)
+| ID | Name | URL |
+|----|------|-----|
+| bell-curve | Bell Curve | `8tw3vb.png` |
+| panik-kalm | Panik Kalm Panik | `3qqcim.png` |
+| they-dont-know | They Don't Know | `4pn1an.png` |
+| two-guys-bus | Two Guys on a Bus | `5v6gwj.jpg` |
+| where-monkey | Where Monkey | `58eyvu.png` |
+| clown-makeup | Clown Applying Makeup | `38el31.jpg` |
+| gus-fring | Gus Fring (Not Same) | `5o32tt.png` |
+| empire-climbers | Empire State Climbers | `avnxpz.png` |
+| zero-days | 0 Days Without (Lenny) | `72epa9.png` |
+| two-paths | Two Paths | `54d9lj.png` |
+| grant-gustin | Grant Gustin Over Grave | `3nx72a.png` |
+| george-bush | George Bush 9/11 | `3gdsh1.jpg` |
+
+### Movies (5)
+| ID | Name | URL |
+|----|------|-----|
+| megamind-peeking | Megamind Peeking | `64sz4u.png` |
+| spiderman-triple | Spider-Man Triple | `3eqjd8.jpg` |
+| laughing-leo | Laughing Leo | `4acd7j.png` |
+| megamind-bitches | Megamind No Bitches | `65939r.jpg` |
+| anime-terminator | Anime Girl Hiding | `3po4m7.jpg` |
+
+### Implementation Order (for each template):
+1. Add `{ id, name, category, topArea, botArea, premium }` to `templates[]` array
+2. Add `'id': 'https://i.imgflip.com/FILE.EXT'` to `templateImages{}` object
+3. Add `'id': 'linear-gradient(...)'` to `templateGradients{}` object
+4. Repeat × 20 → total becomes 73 templates
 
 ---
 
@@ -157,19 +206,25 @@ The Pro modal now has:
 
 ## Remaining Work
 
-**Must do before deploy:**
-1. [x] Fix imgflip IDs — done for all verified templates
-2. [x] Add Gumroad link to Pro modal — done (user must replace URL)
-3. [x] Add Carbon Ads script to footer — done (user must replace zone ID)
-4. [x] ~~Replace `YOUR-GUMROAD-SLUG.hardgraft.com`~~ → Replace with actual Gumroad product URL
-5. [x] ~~Replace `YOUR_ZONE_ID` in Carbon Ads~~ → Replace with actual Carbon Ads zone ID
-6. [x] Deploy to GitHub Pages — DEPLOYED at https://ammaar345.github.io/memeforge/
-7. [ ] Test: mobile Chrome, Safari — verify canvas renders
-8. [ ] Test: download PNG → watermarks removed for pro users
+**Phase 1 — Templates (NEXT):**
+1. [ ] Add 20 modern imgflip templates (real images) — see table above
+   - Update `templates[]` array + `templateImages{}` + `templateGradients{}`
+   - Total goes 53 → 73
 
-**Nice to have:**
-- [ ] Session storage for top/bottom text (survives accidental back nav)
-- [ ] OG image meta tags for social sharing
+**Phase 2 — Cloudflare Deploy:**
+1. [ ] Fix build command in Cloudflare dashboard: `echo "static"`, output dir: `.`
+2. [ ] Trigger manual deploy from dashboard
+
+**Phase 3 — Monetization:**
+1. [ ] Create Gumroad product → replace `YOUR-GUMROAD-SLUG.hardgraft.com` in index.html:252
+2. [ ] Apply for Google AdSense → replace IDs in index.html footer
+3. [ ] (Optional) Add Gumroad License API verification in `attemptUnlock()` in app.js
+
+**Phase 4 — Polish:**
+1. [ ] Test: mobile Chrome, Safari — verify canvas renders
+2. [ ] Test: download PNG → watermarks removed for pro users
+3. [ ] OG image meta tags for social sharing
+4. [ ] Session storage for top/bottom text
 
 ---
 
